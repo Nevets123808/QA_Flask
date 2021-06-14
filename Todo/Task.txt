@@ -1,0 +1,4 @@
+Create the Todo List app with the following:
+- A Todos model to work with a Database
+- A route at the index / that returns the string "This is a Todo App"
+- A route at /add that returns the string "Add a new Todo".
