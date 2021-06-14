@@ -15,6 +15,13 @@ def garble(garble):
 def about():
     return 'this is nonsense'
 
+@app.route("/<int:number>")
+def square(number):
+    return f"{number} squared is {number**2}."
+
+@app.route("/<float:number>")
+def plus(number):
+    return f"{number} plus 4 is {number+4}"
 
 if __name__ == '__main__':
     app.run(debug=True)
