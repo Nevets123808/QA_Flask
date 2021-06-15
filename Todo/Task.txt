@@ -1,4 +1,12 @@
-Create the Todo List app with the following:
+1. Create the Todo List app with the following:
 - A Todos model to work with a Database
 - A route at the index / that returns the string "This is a Todo App"
 - A route at /add that returns the string "Add a new Todo".
+
+2. Add the following to the Todo List:
+- Make a create.py that recreates your tables when executed.
+- Change your app to a more sophisticated structure.
+- Modify the index / so that it shows all Todos on a HTML template (The todos should show this string if it is complete "&#9989")
+- Modify the /add route so it will add a new Todo to the database (the Todo task can be the same every time) and return the string "Added a new Todo, go to the index to see".
+- Add 2 routes, one at /complete/ID and another at /incomplete/ID. These should update the todo with the corresponding ID and change the complete column to True.
+- Add a route at /update/TASK this should update the most recent Todo with the task entered in the URL.

@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if todo %}
+    <p>Name - Date added</p>
+    {% for item in todo %}
+        <p>{{item.name}}        {{item.date_added}}</p>
+    {% endfor %}
+{% else %}
+    <p> All Tasks complete!</p>
+{% endblock body %}
