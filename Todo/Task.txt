@@ -10,3 +10,14 @@
 - Modify the /add route so it will add a new Todo to the database (the Todo task can be the same every time) and return the string "Added a new Todo, go to the index to see".
 - Add 2 routes, one at /complete/ID and another at /incomplete/ID. These should update the todo with the corresponding ID and change the complete column to True.
 - Add a route at /update/TASK this should update the most recent Todo with the task entered in the URL.
+
+3. Add the following:
+- Create a TodoForm that will allow user to enter a new Todo.
+- Create an add.html that will show the form.
+- Modify the /add route so that it takes the info from the form and enters it to the database.
+^^Done^^
+- Modify the /update/ID route so it uses the Todoform and a new update.html to update existing Todos.
+- Add a /delete/ID route so it takes a dynamic URL with the ID of a Todo and deletes that Todo.
+- Add a Layout.html and have all other templates extend from it.
+- Add redirects to your add, update, delete and complete routes to make your user experience better
+- Add some hyperlinks to your layout.html for easy navigatione the most recent Todo with the task entered in the URL.

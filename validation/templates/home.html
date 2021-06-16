@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Simple form validator</title>
+    </head>
+    <body>
+        <h1>Choose a username!</h1>
+        <div class = 'form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.username.label }}
+                {{ form.username }}
+
+                {%if form.username.errors %}
+                <div class='error'>
+                    {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <br>
+                {{ form.submit }}
+            </form>
+        </div>
+        <div>
+            <p> You chose: {{ username }}</p>
+        </div>
+    </body>
+</html>
