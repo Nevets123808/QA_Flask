@@ -1,11 +1,29 @@
 {% extends "layout.html" %}
 {% block body %}
     {% if todo %}
-        <p>Name - Date added</p>
-        {% for item in todo %}
-            <p>{{item.name}}        {{item.date_added}}</p>
-        {% endfor %}
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Date date_added</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            {% for item in todo %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.date_added }}</td>
+                    <td><a href="{{url_for('complete', ID=item.id)}}">complete</a></td>
+                    <td><a href="{{url_for('update', ID=item.id)}}">update</a></td>
+                    <td><a href="{{url_for('delete', ID=item.id)}}">delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
     {% else %}
         <p> All Tasks complete!</p>
     {% endif %}
+
+    <a href="{{url_for('add')}}">Add a new Task</a>
 {% endblock body %}

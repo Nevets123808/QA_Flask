@@ -1,7 +1,7 @@
 from application import app, db
 from application.models import Tasks
 from application.forms import TodoForm
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from datetime import date
 
 @app.route('/')
@@ -16,28 +16,38 @@ def add():
         new_task = Tasks(name = form.task_name.data, date_added = date.today())
         db.session.add(new_task)
         db.session.commit()
-        message = "Task Added! Go back to index to see."
-        return render_template("add.html",form=form, message = message)
+        return redirect(url_for('home'))
     else:
-        return render_template("add.html", form=form, message = form.task_name.errors)
+        return render_template("add.html", form=form)
 
 @app.route('/complete/<ID>')
 def complete(ID):
     task = Tasks.query.get(int(ID))
     task.completed = True
     db.session.commit()
-    return f"Task {ID} completed!"
+    return redirect(url_for('home'))
 
 @app.route('/incomplete/<ID>')
 def incomplete(ID):
     task = Tasks.query.get(int(ID))
     task.completed = False
     db.session.commit()
-    return f"Task {ID} marked incomplete!"
+    return redirect(url_for('home'))
 
-@app.route('/update/<TASK>')
-def update(TASK):
-    task = Tasks.query.order_by(Tasks.date_added.desc()).first()
-    task.name = TASK
+@app.route('/update/<ID>', methods = ['GET', 'POST'])
+def update(ID):
+    form = TodoForm()
+    task = Tasks.query.get(ID)
+    if form.validate_on_submit():
+        task.name = form.task_name.data
+        db.session.commit()
+        return redirect(url_for('home'))
+    else:    
+        return render_template('update.html', form = form, task=task)
+
+@app.route('/delete/<ID>')
+def delete(ID):
+    task_to_delete = Tasks.query.get(int(ID))
+    db.session.delete(task_to_delete)
     db.session.commit()
-    return f"Most recent task is now {TASK}"
+    return redirect(url_for('home'))

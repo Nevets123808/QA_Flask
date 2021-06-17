@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <p>Task {{ task.id }} is currently: {{ task.name }}</p>
+    <form method = 'POST' action = ''>
+        {{ form.hidden_tag() }}
+        {{ form.task_name.label }} {{form.task_name}}
+        <br>
+        {{ form.submit }}
+    </form>
+{% endblock body %}

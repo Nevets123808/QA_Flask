@@ -15,9 +15,20 @@
 - Create a TodoForm that will allow user to enter a new Todo.
 - Create an add.html that will show the form.
 - Modify the /add route so that it takes the info from the form and enters it to the database.
-^^Done^^
 - Modify the /update/ID route so it uses the Todoform and a new update.html to update existing Todos.
 - Add a /delete/ID route so it takes a dynamic URL with the ID of a Todo and deletes that Todo.
 - Add a Layout.html and have all other templates extend from it.
 - Add redirects to your add, update, delete and complete routes to make your user experience better
 - Add some hyperlinks to your layout.html for easy navigatione the most recent Todo with the task entered in the URL.
+^^Done^^
+
+4. Add the following to the Todo List:
+- Write unit tests and try to get 100% coverage
+- Set up integration testing and write some tests
+- Run the app in Gunicorn
+
+Bonus:
+Add the following to the Todo List:
+- Create a new form OrderForm that has a SelectField with the options "Oldest", "Recent", "Completed", "Incompleted".
+- Then modify the index / route so that it will order the Todos based on the choice made in the order form.
+- Add messages on the index / that will only show in these scenarios. 1. There are no Todos 2. All Todos are complete 3. More than 3 todos are incomplete.
